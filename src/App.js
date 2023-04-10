@@ -1,7 +1,9 @@
+import logo from "./assets/images/logo.png";
+
 function App() {
   return (
     <div className="text-red-600">
-      Event Hub
+      <img src={logo} alt="" className="w-28"/>
     </div>
   );
 }
