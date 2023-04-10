@@ -3,7 +3,7 @@ import { socialMedia, lastUpdate } from "../utils/events.js";
 
 export default function Home(props) {
   return (
-    <div id="home" className="my-14 px-3 md:px-10">
+    <div className="py-14 px-3 md:px-10">
       <div className="text-center">
         <h2 className="font-poppins font-medium">
           To feature your Fest/Events on this page -{" "}

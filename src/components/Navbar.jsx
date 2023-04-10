@@ -4,6 +4,11 @@ import logo from "../assets/images/logo.png";
 export default function Navbar(props) {
   const [input, setInput] = useState("");
 
+  const scrollToTop = () => {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  };
+
   const search = (key, arrOfObj) => {
     const searchResult = [];
 
@@ -31,11 +36,13 @@ export default function Navbar(props) {
             src={logo}
             alt="logo"
             className="w-44 md:w-40 rounded-md mx-auto mb-3 md:inline-block md:mb-0"
+            onClick={scrollToTop}
           />
         </a>
         <a
           href="#home"
           className="mx-4 md:mx-0 md:ml-10 font-poppins text-lg md:text-base font-semibold py-1 px-2 rounded-md hover:bg-white hover:text-black"
+          onClick={scrollToTop}
         >
           Home
         </a>
