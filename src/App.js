@@ -1,11 +1,9 @@
-import logo from "./assets/images/logo.png";
+import Navbar from "./components/Navbar";
 
-function App() {
+export default function App() {
   return (
-    <div className="text-red-600">
-      <img src={logo} alt="" className="w-28"/>
-    </div>
+    <>
+      <Navbar />
+    </>
   );
 }
-
-export default App;
