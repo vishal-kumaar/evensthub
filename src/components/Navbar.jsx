@@ -24,7 +24,7 @@ export default function Navbar(props) {
   );
 
   return (
-    <nav className="text-center md:text-left md:flex md:justify-between md:items-center bg-gray-600 text-white py-4 px-4 md:px-10">
+    <nav className="sticky top-0 left-0 w-full text-center md:text-left md:flex md:justify-between md:items-center bg-gray-600/80 text-white py-4 px-4 md:px-10">
       <div className="mb-3 md:mb-0">
         <a href="#home">
           <img
@@ -35,13 +35,13 @@ export default function Navbar(props) {
         </a>
         <a
           href="#home"
-          className="mx-4 md:mx-0 md:ml-10 font-poppins text-lg md:text-base font-semibold"
+          className="mx-4 md:mx-0 md:ml-10 font-poppins text-lg md:text-base font-semibold py-1 px-2 rounded-md hover:bg-white hover:text-black"
         >
           Home
         </a>
         <a
           href="#footer"
-          className="mx-4 md:mx-0 md:ml-10 font-poppins text-lg md:text-base font-semibold"
+          className="mx-4 md:mx-0 md:ml-10 font-poppins text-lg md:text-base font-semibold py-1 px-2 rounded-md hover:bg-white hover:text-black"
         >
           Contact
         </a>
