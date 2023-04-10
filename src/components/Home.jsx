@@ -1,14 +1,14 @@
 import React from "react";
-import Event from "./Event";
+import { socialMedia, lastUpdate } from "../utils/events.js";
 
-export default function Home() {
+export default function Home(props) {
   return (
     <div id="home" className="my-14 px-3 md:px-10">
       <div className="text-center">
         <h2 className="font-poppins font-medium">
           To feature your Fest/Events on this page -{" "}
           <a
-            href="https://www.instagram.com/_visshal_yadav/"
+            href={socialMedia}
             className="text-blue-600"
             target="_blank"
             rel="noreferrer"
@@ -17,28 +17,55 @@ export default function Home() {
           </a>
         </h2>
         <h1 className="font-signika text-xl mt-2">
-          Last Updated: April 10, 2023
+          Last Updated: {lastUpdate}
         </h1>
       </div>
-      <div className="flex flex-col md:flex-row justify-between">
-        <Event
-          imgUrl="https://www.upcomingfest.ml/pics/mokshansut.jpeg"
-          name="Sample Event 1"
-          location="Sample Location 1"
-          organizer="Sample Organizer 1"
-          datetime="April 10, 2022"
-          instagramUrl="sampleUrl"
-          registerUrl="sampleUrl"
-        />
-        <Event
-          imgUrl="https://www.upcomingfest.ml/pics/mokshansut.jpeg"
-          name="Sample Event 2"
-          location="Sample Location 2"
-          organizer="Sample Organizer 2"
-          datetime="April 10, 2022"
-          instagramUrl="sampleUrl"
-          registerUrl="sampleUrl"
-        />
+      <div className="flex flex-col flex-wrap md:flex-row justify-between">
+        {props.eventObj === [] ? "" :
+          props.eventObj.map((event, index) => (
+            <div
+              className="flex flex-col items-center mt-10 p-4 bg-gray-200 rounded-lg md:w-[48%] mb-7 md:mb-0"
+              key={index}
+            >
+              <img
+                src={event.imgUrl}
+                alt=""
+                className="w-full md:h-80 rounded-lg mb-4"
+              />
+              <h1 className="font-signika text-3xl mb-2">{event.name}</h1>
+              <p className="font-firasans text-base text-gray-600">
+                <span>📍 </span>
+                {event.location}
+              </p>
+              <p className="font-firasans text-base text-gray-600">
+                {event.organizer}
+              </p>
+              <p className="font-firasans text-base text-gray-600 mb-2">
+                <span>Date: </span>
+                {event.datetime}
+              </p>
+              {event.instagramUrl && (
+                <a
+                  href={event.instagramUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="block bg-pink-800 text-white font-roboto font-bold py-1 w-36 text-center rounded mb-2"
+                >
+                  Instagram Page
+                </a>
+              )}
+              {event.registerUrl && (
+                <a
+                  href={event.registerUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="block bg-green-800 text-white font-roboto font-bold py-1 w-36 text-center rounded"
+                >
+                  Registration Link
+                </a>
+              )}
+            </div>
+          ))}
       </div>
     </div>
   );
