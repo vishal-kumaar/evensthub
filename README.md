@@ -1,2 +1,2 @@
-# eventhub-frontend
+# eventhub
 This is the frontend part of upcoming event providing web application.
