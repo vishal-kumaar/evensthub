@@ -34,15 +34,13 @@ export default function Home(props) {
               />
               <h1 className="font-signika text-3xl mb-2">{event.name}</h1>
               <p className="font-firasans text-base text-gray-600">
-                <span>📍 </span>
-                {event.location}
+                🌐 {event.location}
               </p>
               <p className="font-firasans text-base text-gray-600">
                 {event.organizer}
               </p>
               <p className="font-firasans text-base text-gray-600 mb-2">
-                <span>Date: </span>
-                {event.datetime}
+                Date: {event.datetime}
               </p>
               {event.instagramUrl && (
                 <a
