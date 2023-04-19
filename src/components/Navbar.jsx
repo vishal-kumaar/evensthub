@@ -9,12 +9,16 @@ export default function Navbar(props) {
     document.documentElement.scrollTop = 0;
   };
 
-  const search = (key, arrOfObj) => {
+  const searchInput = (key, arrOfObj) => {
     const searchResult = [];
 
     for (let obj of arrOfObj) {
-      if (obj.name.toLowerCase().search(key.toLowerCase()) !== -1) {
-        searchResult.push(obj);
+      try {
+        if (obj.name.toLowerCase().search(key.toLowerCase()) !== -1) {
+          searchResult.push(obj);
+        }
+      } catch (error) {
+        return searchResult;
       }
     }
     return searchResult;
@@ -22,7 +26,7 @@ export default function Navbar(props) {
 
   useEffect(
     () => {
-      props.setEventObj(search(input, props.events));
+      props.setEventObj(searchInput(input, props.events));
     },
     // eslint-disable-next-line
     [input]
