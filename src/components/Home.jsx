@@ -1,5 +1,6 @@
 import React from "react";
 import { socialMedia, lastUpdate } from "../utils/events.js";
+import notFoundIcon from "../assets/images/not_found.svg"
 
 export default function Home(props) {
   return (
@@ -21,7 +22,9 @@ export default function Home(props) {
         </h1>
       </div>
       <div className="flex flex-col flex-wrap md:flex-row justify-between">
-        {props.eventObj === [] ? "" :
+        {props.eventObj.length === 0 ? (
+          <img src={notFoundIcon} alt="notFound" className="w-96 mx-auto"/>
+        ) :
           props.eventObj.map((event, index) => (
             <div
               className="flex flex-col items-center mt-10 p-4 bg-gray-200 rounded-lg md:w-[48%] mb-7 md:mb-0"
